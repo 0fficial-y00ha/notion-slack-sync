@@ -52,7 +52,7 @@ def check_and_send_insta_alarm():
 
         # 슬랙 웹훅으로 데이터 전송 (미리 만들어둔 insta_alarm 변수 활용)
         slack_payload = {
-            "insta_alarm": f"🚨 *[업로드 D-10 알림]*\n10일 뒤 업로드 예정인 콘텐츠가 있습니다!\n\n*콘텐츠명:* {agenda_title}\n*예정일:* {target_date}\n*노션 링크:* {page_url}"
+            "text": f"🚨 *[업로드 D-10 알림]*\n10일 뒤 업로드 예정인 콘텐츠가 있습니다!\n\n*콘텐츠명:* {agenda_title}\n*예정일:* {target_date}\n*노션 링크:* {page_url}"
         }
         
         slack_res = requests.post(SLACK_WEBHOOK_URL, json=slack_payload)
